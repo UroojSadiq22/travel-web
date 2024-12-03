@@ -55,8 +55,8 @@ export default function Header() {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Skills", path: "/skills" },
-    { name: "Projects", path: "/projects" },
+    { name: "Gallery", path: "/gallery" },
+    { name: "Packages", path: "/packages" },
     { name: "Contact", path: "/contact" },
   ];
 
@@ -103,46 +103,34 @@ export default function Header() {
       </div>
 
       <div ref={scope} className="lg:hidden absolute top-8 right-4 z-50">
-  <MenuToggle toggle={() => setIsOpen(!isOpen)} />
-</div>
-<div
-  
-  className={`bg-orange-500 h-screen shadow-2xl absolute top-0 right-0 p-8 flex flex-col items-end ${
-    isOpen ? "block" : "hidden"
-  }`}
->
-  <ul
-    className="flex flex-col items-start p-8 pt-10 space-y-6 text-white"
-  >
-    {navLinks.map((link) => (
-      <li key={link.name} className="w-full ">
-        <Link
-          href={link.path}
-          className={`text-xl font-bold ${
-            pathname === link.path
-              ? "text-blue-400"
-              : "hover:text-blue-400"
-          } transition-all duration-300`}
-          aria-current={pathname === link.path ? "page" : undefined}
-          onClick={() => setIsOpen(false)}
-        >
-          <h1>{link.name}</h1>
-          <hr className="my-2 border-blue-400" />
-        </Link>
-      </li>
-    ))}
-  </ul>
-  {/* Overlay Background */}
-  {isOpen && (
-          <div
-            className="fixed inset-0 bg-black opacity-50 z-10"
-            onClick={() => setIsOpen(false)}
-          ></div>
-        )}
-  
-</div>
+        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
+      </div>
 
-
+      <div
+        className={`bg-orange-500 h-screen z-100 shadow-2xl absolute top-0 right-0 p-8 flex flex-col items-end ${
+          isOpen ? "block" : "hidden"
+        }`}
+      >
+        <ul className="flex flex-col items-start p-8 pt-10 space-y-6 text-white">
+          {navLinks.map((link) => (
+            <li key={link.name} className="w-full ">
+              <Link
+                href={link.path}
+                className={`text-xl font-bold ${
+                  pathname === link.path
+                    ? "text-blue-400"
+                    : "hover:text-blue-400"
+                } transition-all duration-300`}
+                aria-current={pathname === link.path ? "page" : undefined}
+                onClick={() => setIsOpen(false)}
+              >
+                <h1>{link.name}</h1>
+                <hr className="my-2 border-blue-400" />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       {/* Mobile Navbar */}
       {/* <div className="md:hidden flex items-center" >
