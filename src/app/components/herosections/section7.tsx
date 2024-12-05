@@ -18,7 +18,7 @@ export default function Testimonial() {
   };
   const plugin = useRef(Autoplay({ delay: 5000, stopOnInteraction: true }));
   return (
-    <section className="relative w-full md:h-[80%] h-full my-10">
+    <section className="relative w-full md:h-[80%] h-full mt-10 md:mb-0 mb-24">
       <div className="absolute inset-0">
         <Image
           src="/bgtestimonial.png"

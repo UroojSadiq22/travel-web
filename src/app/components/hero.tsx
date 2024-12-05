@@ -1,23 +1,29 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import Section1 from "./section1";
-import Section2 from "./section2";
-import Section3 from "./section3";
-import Section4 from "./section4";
-import Section5 from "./section5";
-import Section6 from "./section6";
-import Section7 from "./section7";
+import Section1 from "./herosections/section1"
+import Section2 from "./herosections/section2";
+import Section3 from "./herosections/section3";
+import Section4 from "./herosections/section4";
+import Section5 from "./herosections/section5";
+import Section6 from "./herosections/section6";
+import Section7 from "./herosections/section7";
 import { motion } from "framer-motion";
+import ScrollToTop from "./scrolltotop";
+import { useEffect, useRef, useState } from "react";
+import { ChevronUp } from "lucide-react";
+import Footer from "./footer";
 // Data sets
 
 export default function Hero() {
+  const mainRef = useRef<HTMLElement | null>(null);
+  
   const itemVariants = {
     hidden: { opacity: 0, x: 70 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.9 } },
   };
   return (
-    <main className="relative w-full h-screen overflow-x-hidden overflow-y-auto">
+    <main  ref={mainRef} className="w-full h-screen overflow-x-hidden">
       <Section1 />
 
       {/* Partners Section */}
@@ -127,6 +133,10 @@ export default function Hero() {
 
       {/* testimonial section */}
       <Section7 />
+
+      <ScrollToTop mainRef={mainRef}/>
+
+      <Footer/>
     </main>
   );
 }

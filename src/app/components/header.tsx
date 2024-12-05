@@ -67,7 +67,7 @@ export default function Header() {
   const scope = useMenuAnimation(isOpen);
 
   return (
-    <section className="flex justify-around items-center h-[6rem] backdrop-blur-sm bg-transparent absolute top-0 left-0 right-0 z-50">
+    <section className="flex justify-around items-center h-[6rem] backdrop-blur-sm mx-auto bg-transparent fixed top-0 left-0 right-0 z-50">
       <div className="mr-32 lg:mr-0">
         <Image src="/logo.png" alt="logo" width={104} height={104} />
       </div>

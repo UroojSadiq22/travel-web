@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import ComboBox from "./combobox";
+import ComboBox from "../combobox";
 import Image from "next/image";
 import { motion } from "framer-motion";
 

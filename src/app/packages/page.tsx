@@ -1,12 +1,12 @@
 import Image from "next/image"
 
-export default function About(){
+export default function Packages(){
     return(
         <main className="relative w-full">
 
       <div className="h-[70vh]">
         <Image
-          src="/bgabout.png"
+          src="/bgpackage.png"
           alt="background"
           layout="fill"
           objectFit="cover"
