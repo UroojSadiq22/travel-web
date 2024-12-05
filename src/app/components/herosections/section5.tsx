@@ -62,7 +62,7 @@ export default function Booking(){
               <CarFront color="#ffffff" />
             </div>
             <div>
-              <h1 className="font-bold text-lg text-gray-800">Let's Go</h1>
+              <h1 className="font-bold text-lg text-gray-800">Let&apos;s Go</h1>
               <p className="lg:text-sm text-xs text-gray-500">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Urna,
                 tortor tempus.

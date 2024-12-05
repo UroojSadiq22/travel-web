@@ -10,8 +10,7 @@ import Section6 from "./herosections/section6";
 import Section7 from "./herosections/section7";
 import { motion } from "framer-motion";
 import ScrollToTop from "./scrolltotop";
-import { useEffect, useRef, useState } from "react";
-import { ChevronUp } from "lucide-react";
+import { useRef } from "react";
 import Footer from "./footer";
 // Data sets
 

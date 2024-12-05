@@ -19,13 +19,14 @@ export default function Partners() {
       <div className="md:flex md:flex-row justify-center grid grid-cols-2 lg:gap-20 gap-10">
         {partners.map((i, index) => (
           <motion.div
+           key={index}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={itemVariants}
           >
             <Image
-              key={index}
+             
               src={i.src}
               alt={i.alt}
               width={150}
