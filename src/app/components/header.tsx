@@ -7,16 +7,19 @@ import { useEffect, useState } from "react";
 import { MenuToggle } from "./MenuToggle";
 import { ValueAnimationOptions } from "framer-motion";
 
+import { Easing } from "framer-motion";
+
 type MenuAnimation = [
   string,
   Record<string, unknown>,
-  Partial<
-    ValueAnimationOptions<any> & {
-      at?: string;
-      delay?: number | DynamicOption<number>;
-    }
-  >
+  Partial<{
+    at?: string;
+    delay?: number;
+    ease?: Easing | Easing[];
+    duration?: number;
+  }>
 ];
+
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
