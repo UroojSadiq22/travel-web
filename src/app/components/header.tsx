@@ -1,11 +1,11 @@
 "use client";
-import { DynamicOption, stagger, useAnimate } from "framer-motion";
+import { stagger, useAnimate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MenuToggle } from "./MenuToggle";
-import { ValueAnimationOptions } from "framer-motion";
+
 
 import { Easing } from "framer-motion";
 
