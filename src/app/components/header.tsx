@@ -1,16 +1,28 @@
 "use client";
-import { stagger, useAnimate } from "framer-motion";
+import { DynamicOption, stagger, useAnimate } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MenuToggle } from "./MenuToggle";
+import { ValueAnimationOptions } from "framer-motion";
+
+type MenuAnimation = [
+  string,
+  Record<string, unknown>,
+  Partial<
+    ValueAnimationOptions<any> & {
+      at?: string;
+      delay?: number | DynamicOption<number>;
+    }
+  >
+];
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    const menuAnimations: [string, any, any][] = isOpen
+    const menuAnimations: MenuAnimation[] = isOpen
       ? [
           [
             "nav",
@@ -20,14 +32,17 @@ function useMenuAnimation(isOpen: boolean) {
           [
             "li",
             { transform: "scale(1)", opacity: 1, filter: "blur(0px)" },
-            { delay: stagger(0.05), at: "-0.1" },
+            { delay: stagger(0.05) as unknown as number, at: "-0.1" },
           ],
         ]
       : [
           [
             "li",
             { transform: "scale(0.5)", opacity: 0, filter: "blur(10px)" },
-            { delay: stagger(0.05, { from: "last" }), at: "<" },
+            {
+              delay: stagger(0.05, { from: "last" }) as unknown as number,
+              at: "<",
+            },
           ],
           ["nav", { transform: "translateX(-100%)" }, { at: "-0.1" }],
         ];
@@ -46,7 +61,7 @@ function useMenuAnimation(isOpen: boolean) {
       ],
       ...menuAnimations,
     ]);
-  }, [isOpen]);
+  }, [isOpen, animate]);
 
   return scope;
 }
@@ -133,44 +148,6 @@ export default function Header() {
       </div>
 
       {/* Mobile Navbar */}
-      {/* <div className="md:hidden flex items-center" >
-        <MenuToggle toggle={() => setIsOpen(!isOpen)} />
-
-        <nav
-          ref={scope}
-          className={`fixed inset-0 bg-gradient-to-br from-[#007ebb] via-[#33a1ff] to-[#005f8a] z-40 transform transition-transform duration-300 ease-in-out ${
-            isOpen ? "translate-y-0" : "-translate-y-full"
-          }`}
-        >
-          <ul className="flex flex-col items-start p-8 pt-10 space-y-6 text-white">
-            {navLinks.map((link) => (
-              <li key={link.name} className="w-full">
-                <Link
-                  href={link.path}
-                  className={`text-xl font-bold ${
-                    pathname === link.path
-                      ? "text-blue-400"
-                      : "hover:text-blue-400"
-                  } transition-all duration-300`}
-                  aria-current={pathname === link.path ? "page" : undefined}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <h1>{link.name}</h1>
-                  <hr className="my-2 border-blue-400" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        
-        {isOpen && (
-          <div
-            className="fixed inset-0 bg-black opacity-50 z-30"
-            onClick={() => setIsOpen(false)}
-          ></div>
-        )}
-      </div> */}
     </section>
   );
 }
