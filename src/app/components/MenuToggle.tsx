@@ -39,9 +39,9 @@
 // );
 
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, SVGMotionProps } from 'framer-motion';
 
-const Path = (props: any) => (
+const Path = (props: SVGMotionProps<SVGPathElement>) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
@@ -63,7 +63,7 @@ export const MenuToggle = ({ toggle }: MenuToggleProps) => (
         className="top"
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
-          open: { d: "M 3 16.5 L 17 2.5" }
+          open: { d: "M 3 16.5 L 17 2.5" },
         }}
       />
       <Path d="M 2 9.423 L 20 9.423" opacity="1" className="middle" />
@@ -72,7 +72,7 @@ export const MenuToggle = ({ toggle }: MenuToggleProps) => (
         className="bottom"
         variants={{
           closed: { d: "M 2 16.346 L 20 16.346" },
-          open: { d: "M 3 2.5 L 17 16.346" }
+          open: { d: "M 3 2.5 L 17 16.346" },
         }}
       />
     </svg>

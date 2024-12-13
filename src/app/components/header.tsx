@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { MenuToggle } from "./MenuToggle";
 
-
 import { Easing } from "framer-motion";
 
 type MenuAnimation = [
@@ -19,7 +18,6 @@ type MenuAnimation = [
     duration?: number;
   }>
 ];
-
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
